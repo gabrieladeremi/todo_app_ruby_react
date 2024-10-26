@@ -4,6 +4,12 @@ const BASE_URL = 'http://127.0.0.1:3000/api/'
 
 const GET_URL = `${BASE_URL}todos`
 const POST_URL = `${BASE_URL}todos`
+const DELETE_URL = (id) => `${BASE_URL}todos/${id}`
+
+
+
+//const PATCH_URL = `${BASE_URL}todos/:id/update_completed`
+
 
 // Makes requests to endpoint exposed to get all todos
 export const get_todos =  async () => {
@@ -19,6 +25,18 @@ export const create_todo = async (todo_name) => {
       'completed': false
     }
   );
+
+  return response.data
+}
+
+// export const update_todo = async () => {
+//   const response = await axios.patch(PATCH_URL, {'completed': false})
+
+//   return response.data
+// }
+
+export const delete_todo = async (id) => {
+  const response = await axios.delete(DELETE_URL(id));
 
   return response.data
 }
