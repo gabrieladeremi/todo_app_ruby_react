@@ -12,6 +12,7 @@ const TodoList = ({todos, deleteTodo}) => {
               key={todo.id}
               id={todo.id}
               todo_name={todo.todo_name}
+              completed={todo.completed}
               deleteTodo={deleteTodo}
             />
           )
