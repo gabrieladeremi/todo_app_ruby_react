@@ -2,12 +2,16 @@ import Todo from "./Todo"
 
 // Todo takes a prop call todo_list
 
-const TodoList = () => {
+const TodoList = ({todos}) => {
   return (
     <div className='todo-list'>
-      <Todo todo_list='Todo 1'/>
-      <Todo todo_list='Todo 2'/>
-      <Todo todo_list='Todo 3'/>
+      {
+        todos.map((todo) => {
+          return (
+            <Todo key={todo.id} todo_name={todo.todo_name} />
+          )
+        })
+      }
     </div>
   )
 }
